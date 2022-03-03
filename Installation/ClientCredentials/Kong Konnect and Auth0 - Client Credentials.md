@@ -443,11 +443,9 @@ Let's apply the OIDC plugin to the Route with the specific Auth0 settings:<p>
 Check the [OIDC Plugin](https://docs.konghq.com/hub/kong-inc/openid-connect/) page for more information about the plugin.<p>
 
 
-* Click on <b>httpbinroute</b> again:
-![httpbinroute3](images/httpbinroute3.png)
+* Go back to Kong Konnect Control Plane and click on <b>httpbinroute</b> again:
 
 * Click on <b>Add Plugin</b>. Choose <b>OpenID Connect</b> plugin:
-![oidc](images/oidc.png)
 
 * Fill in the form with the following configuration:<p>
 <b>Config.Issuer</b>: use the Auth0 Domain we saved previously <b>https://dev-xxxxxx.us.auth0.com/.well-known/openid-configuration</b><p>
