@@ -517,6 +517,3 @@ X-Kong-Response-Latency: 642
 }
 </pre>
 
-
-* Check the JWT
-Copy the token issued by Auth0 and paste it in <b>http://jwt.io</b>
