@@ -445,10 +445,10 @@ Check the [OIDC Plugin](https://docs.konghq.com/hub/kong-inc/openid-connect/) pa
 Go back to Kong Konnect Control Plane and click on <b>httpbinroute</b> again. Click on <b>Add Plugin</b>. Choose <b>OpenID Connect</b> plugin
 
 Fill in the form with the following configuration:<p>
-<b>Config.Issuer</b>: use the Auth0 Domain we saved previously <b>https://dev-xxxxxx.us.auth0.com/.well-known/openid-configuration</b><p>
-<b>Config.Scopes</b>: delete the openid scope set by default<p>
-<b>Config.Token Post Args Names</b>: it should be set with <b>audience</b><p>
-<b>Config.Token Post Args Values</b>: it should be set with the API Identifier we used to create the Auth0 API: </b>https://clientcredentials.com</b><p>
+* <b>Config.Issuer</b>: use the Auth0 Domain we saved previously <b>https://dev-xxxxxx.us.auth0.com/.well-known/openid-configuration</b><p>
+* <b>Config.Scopes</b>: delete the openid scope set by default<p>
+* <b>Config.Token Post Args Names</b>: it should be set with <b>audience</b><p>
+* <b>Config.Token Post Args Values</b>: it should be set with the API Identifier we used to create the Auth0 API: </b>https://clientcredentials.com</b><p>
 
 Click on <b>Create</b>.
 
