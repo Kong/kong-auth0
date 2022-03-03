@@ -128,9 +128,6 @@ http a131cf848dbd44e45af06511412201fe-1032110377.eu-west-3.elb.amazonaws.com/htt
 ## Auth0 Application Creation
 * Login to Auth0 console again and click on <b>Applications</b> -> <b>Applications</b> -> <b>+ Create Application</b>. Create a Native Application named <b>KongPKCE</b>.
 
-![Auth0App](images/Auth0App.png)
-
-
 * Click on <b>Settings</b> tab and configure the Application using the Kong Data Plane's Load Balancer. Note it's refering to new Kong Route, <b>httpbin2</b><p>
 For "Application Login URI" type "https://a131cf848dbd44e45af06511412201fe-1032110377.eu-west-3.elb.amazonaws.com/httpbin2/get"<p>
 For "Allowed Callback URLs" type "https://a131cf848dbd44e45af06511412201fe-1032110377.eu-west-3.elb.amazonaws.com/httpbin2/get"<p>
@@ -138,7 +135,6 @@ For "Allowed Logout URLs" type "https://a131cf848dbd44e45af06511412201fe-1032110
 
 * Save the Client Id, we're going to use it to configure the Kong OIDC plugin. In our case, LMttfxuWLvRTCUwgkR1MFWXuJZBv1MyC
 
-![KongPKCE](images/KongPKCE.png)
 
 
 ### Add a new Route to the Kong declaration with Authorization Code Grant
