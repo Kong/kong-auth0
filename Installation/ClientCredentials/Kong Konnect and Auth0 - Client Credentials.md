@@ -484,7 +484,7 @@ X-RateLimit-Remaining-Minute: 4
     "headers": {
         "Accept": "*/*",
         "Accept-Encoding": "gzip, deflate",
-        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InlpdFBpTml2LXRQWkxGdjV2YlBNWCJ9.eyJpc3MiOiJodHRwczovL2Rldi0zeWd6a2J6Ny51cy5hdXRoMC5jb20vIiwic3ViIjoicjdsZ0FyV0htbTNFMTJlbExUUkRQVm5CSEFFeHJ1RWdAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vY2xpZW50Y3JlZGVudGlhbHMuY29tIiwiaWF0IjoxNjQ1MDEwMTEwLCJleHAiOjE2NDUwOTY1MTAsImF6cCI6InI3bGdBcldIbW0zRTEyZWxMVFJEUFZuQkhBRXhydUVnIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.XbbNUX36sG-pg7UGoDk5bfeexU4a1CuGCESAsDhIur5gmmMKPNq5YKFZNyLHQqTKEFwlBwyoofyTE5yBY1ES8M_skMAfG0w--AkJ_zE3hChOi-wOC7SKMmc70-JzK0wvz_QcyuKnPT2NUHMNUNC7hwJ0Vd4nOsnd7ZtUldBdhYOZkqdy4t8k4CK6IiOUSAewg0TkRIRMDg6hFcwhWflUxfNZigO2vP80c1G1KAhgaaHPmJcXxLcnE57aRPdc-3w5R6bXt0yiOJu3roBr3AYkksuruqGdRMDqCeOKbZNNMTRKhXfPNmYPNNOvxIu1Faw2ETcH0PXdSNbQrtryNN2tCQ",
+        <b>"Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InlpdFBpTml2LXRQWkxGdjV2YlBNWCJ9.eyJpc3MiOiJodHRwczovL2Rldi0zeWd6a2J6Ny51cy5hdXRoMC5jb20vIiwic3ViIjoicjdsZ0FyV0htbTNFMTJlbExUUkRQVm5CSEFFeHJ1RWdAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vY2xpZW50Y3JlZGVudGlhbHMuY29tIiwiaWF0IjoxNjQ1MDEwMTEwLCJleHAiOjE2NDUwOTY1MTAsImF6cCI6InI3bGdBcldIbW0zRTEyZWxMVFJEUFZuQkhBRXhydUVnIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.XbbNUX36sG-pg7UGoDk5bfeexU4a1CuGCESAsDhIur5gmmMKPNq5YKFZNyLHQqTKEFwlBwyoofyTE5yBY1ES8M_skMAfG0w--AkJ_zE3hChOi-wOC7SKMmc70-JzK0wvz_QcyuKnPT2NUHMNUNC7hwJ0Vd4nOsnd7ZtUldBdhYOZkqdy4t8k4CK6IiOUSAewg0TkRIRMDg6hFcwhWflUxfNZigO2vP80c1G1KAhgaaHPmJcXxLcnE57aRPdc-3w5R6bXt0yiOJu3roBr3AYkksuruqGdRMDqCeOKbZNNMTRKhXfPNmYPNNOvxIu1Faw2ETcH0PXdSNbQrtryNN2tCQ"<b>,
         "Host": "httpbin.org",
         "User-Agent": "HTTPie/3.0.2",
         "X-Amzn-Trace-Id": "Root=1-620cdcbe-3e2ecc8c33302c050a43de4b",
@@ -520,4 +520,3 @@ X-Kong-Response-Latency: 642
 
 * Check the JWT
 Copy the token issued by Auth0 and paste it in <b>http://jwt.io</b>
-![jwt](images/jwt.png)
