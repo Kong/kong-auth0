@@ -238,16 +238,12 @@ The API has been exposed and can be consumed as many times as we want. Now it is
 Generally speaking, a plugin can be enabled to specific objects like Services, Routes and Consumers or globally. Check the [documentation](https://docs.konghq.com/konnect/manage-plugins/) for more information.
 
 * Click on the Route <b>httpbinroute</b>
-![httpbinroute](images/httpbinroute.png)
 
 * Click on <b>Add a Plugin</b>
-![newplugin](images/newplugin.png)
 
 * Scroll down to the <b>Traffic Control</b> section:
-![trafficcontrol](images/trafficcontrol.png)
 
 * Click on <b>Rate Limiting</b>:
-![ratelimiting](images/ratelimiting.png)
 
 For the <b>Config.Minute</b> parameter type <b>5</b> and for <b>config.policy</b> choose <b>local</b>. Click on <b>Create</b>.
 
