@@ -214,12 +214,4 @@ https://a131cf848dbd44e45af06511412201fe-1032110377.eu-west-3.elb.amazonaws.com/
 
 Accept the Digital Certificate exception. Since you don't have an Access Token, the Gateway will redirect you to Auth0 to get authenticated.
 
-![Auth0UI](images/Auth0UI.png)
-
 Type the credentials of an existing user or sign up for a new one. After authentication, Auth0 will redirect you back to the API Gateway with the both Access and Id Tokens injected inside the request.
-
-![UpstreamResponse](images/UpstreamResponse.png)
-
-Again, you can check the tokens:
-
-![JWT](images/JWT.png)
