@@ -79,7 +79,7 @@ kube-system   kube-dns     ClusterIP   10.100.0.10   <none>        53/UDP,53/TCP
 Subscribe to [Kong Konnect Plus](https://konnect.konghq.com/register?_ga=2.127542733.1909926982.1645531351-1264875266.1638464050) to get a 30-day rial with all Enterprise capabilities enabled including IdP integrations with OpenID Connect
 
 ### Kong Certificates and Key
-Login to [Kong Konnect](https://konnect.konghq.com) and Go to "Runtimes" -> "Configure Runtime" -> "Kubernetes".
+Login to [Kong Konnect](https://konnect.konghq.com) and go to "Runtimes" -> "Configure Runtime" -> "Kubernetes".
 
 Click on "Generate Certificate" and copy them.
 * Save the "Cluster Certificate" as tls.crt
@@ -173,13 +173,10 @@ kube-system   kube-dns             ClusterIP      10.100.0.10      <none>       
 ## Kong Gateway Service and Route Creation and Policies
 ### Create the Service Package
 * Login to Konnect and click on <b>Add New Service</b>
-![ServiceHub](images/servicehub.png)
 
 * Create a new <b>httpbinservice</b> Service with <b>v1</b> version
-![NewService](images/newservice.png)
 
 * Click on <b>Create</b>
-![httpbinservice](images/httpbinservice.png)
 
 
 
