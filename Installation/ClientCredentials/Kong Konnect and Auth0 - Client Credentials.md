@@ -419,24 +419,19 @@ The <b>Client Credentials</b> Flow is defined by OAuth to address scenarios like
 Let's create our first Auth0 API:
 
 * Login to Auth0 console using your endpoint like this: http://auth0.com<p>
-![auth0](images/auth0.png)
 
 * Click on <b>Applications</b> -> <b>APIs</b> -> <b>+ Create API</b>. Create a new API named <b>KongClientCredentials</b> with </b>https://clientcredentials.com</b> as its Identifier.<p>
-![auth0api](images/auth0api.png)
 
-* Click on <b>Create</b>:
-![auth0api2](images/auth0api2.png)
+* Click on <b>Create</b>
 
 * Click on the <b>Machine to Machine Applications</b> tab. As you can see Auth0 automatically created a Test Application for us. The Application is also already authorized to use the API.
-
-![auth0api3](images/auth0api3.png)
 
 * Click on the <b>KongClientCredentials (Test Application)</b> Application link. Click on the "eye" button to see the <b>client secret</b>. Save <b>Domain</b>,  <b>Client ID</b> and <b>Client secret</b>. They'll be used to configure the Kong OIDC plugin and consume the API. In our case:<p>
 <b>Domain: dev-xxxxxx.us.auth0.com</b><p>
 <b>Client ID: r7lgArWHmm3E12elLTRDPVnBHAExruEg</b><p>
 <b>Client Secret: 6F3nCynbE6Hgs9cUSWfMYvE2_urz_xPqOsAI0y6K3sob-ZT1AC_DGdn4j2pno7G_</b><p>
 
-![auth0api4](images/auth0api4.png)
+
 
 
 
