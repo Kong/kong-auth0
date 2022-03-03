@@ -320,10 +320,8 @@ The second policy we are going to create is the Proxy Caching to get better perf
 For the same Route we're going to enable the new policy based on the Proxy Caching plugin.
 
 * Click on the Route <b>httpbinroute</b> again:
-![httpbinroute2](images/httpbinroute2.png)
 
 * Click on <b>Add Plugin</b>. Scroll down to the <b>Traffic Control</b> section again and choose the <b>Proxy Caching</b> plugin:
-![proxycache](images/proxycache.png)
 
 Similarly to what we did before, we going to set the Proxy Caching plugin with its specific parameters. For example, for <b>Config.CacheTtll</b> parameter type <b>30</b> and for <b>Config.Strategy</b> choose <b>memory</b>.
 
