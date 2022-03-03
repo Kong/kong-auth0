@@ -79,13 +79,11 @@ kube-system   kube-dns     ClusterIP   10.100.0.10   <none>        53/UDP,53/TCP
 Subscribe to [Kong Konnect Plus](https://konnect.konghq.com/register?_ga=2.127542733.1909926982.1645531351-1264875266.1638464050) to get a 30-day rial with all Enterprise capabilities enabled including IdP integrations with OpenID Connect
 
 ### Kong Certificates and Key
-Login to [Kong Konnect](https://konnect.konghq.com) and Go to "Runtimes" -> "Configure Runtime" -> "Kubernetes":
-
-![Authorization Code + PKCE](images/Certificates_Key.png)
+Login to [Kong Konnect](https://konnect.konghq.com) and Go to "Runtimes" -> "Configure Runtime" -> "Kubernetes".
 
 Click on "Generate Certificate" and copy them.
 * Save the "Cluster Certificate" as tls.crt
-* Save the "Certificate Key" as lls.key
+* Save the "Certificate Key" as tls.key
 * Save the "Root CA Certificate" as ca.crt
 
 
