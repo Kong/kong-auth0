@@ -437,11 +437,10 @@ Let's create our first Auth0 API:
 
 ### Enable the OIDC plugin to the Route
 Let's apply the OIDC plugin to the Route with the specific Auth0 settings:<p>
-<b>Issuer Endpoint</b><p>
-<b>Scope</b><p>
+* <b>Issuer Endpoint</b><p>
+* <b>Scope</b><p>
 
 Check the [OIDC Plugin](https://docs.konghq.com/hub/kong-inc/openid-connect/) page for more information about the plugin.<p>
-
 
 * Go back to Kong Konnect Control Plane and click on <b>httpbinroute</b> again:
 
