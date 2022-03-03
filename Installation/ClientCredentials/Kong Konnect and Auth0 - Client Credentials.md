@@ -181,17 +181,14 @@ kube-system   kube-dns             ClusterIP      10.100.0.10      <none>       
 
 
 ### Create the Service's Implementation
-Click on version <b>v1</b>
-![v1](images/v1.png)
+* Click on version <b>v1</b>
 
-Click on <b>New Implementation</b>
-![implementation](images/implementation.png)
+* Click on <b>New Implementation</b>
 
-Type <b>http://httpbin.org</b> for URL and click on <b>Next</b>
-![implementation2](images/implementation2.png)
+* Type <b>http://httpbin.org</b> for URL and click on <b>Next</b>
 
-Type <b>httpbinroute</b> for <b>Name</b>. Click on <b>+ Add Path</b> and type <b>/httpbin</b>. Click on <b>Create</b>.
-![implementation3](images/implementation3.png)
+* Type <b>httpbinroute</b> for <b>Name</b>. Click on <b>+ Add Path</b> and type <b>/httpbin</b>. Click on <b>Create</b>.
+
 
 
 ### Consume the Kong Route
