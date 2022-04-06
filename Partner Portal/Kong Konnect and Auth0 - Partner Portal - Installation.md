@@ -259,18 +259,4 @@ X-Kong-Response-Latency: 642
 
 
 
-To configure the integration with ((TODO: Your service name)), follow the steps below.
-
-((TODO: Add steps as an ordered list for configuring your service))
-
-## Set up Auth0
-
-((TODO: Add steps as an ordered list for configuring Auth0 for your service))
-
-## Results
-
-((TODO: Explain what the customer should expect when the integration is configured and deployed))
-
-## Troubleshooting
-
-((TODO: Common issues or links to troubleshooting resources))
+Please refer to the [OIDC plugin](https://docs.konghq.com/hub/kong-inc/openid-connect/) documentation page to learn how to configure all OIDC Grants specifically with [Auth0](https://docs.konghq.com/gateway/2.8.x/configure/auth/oidc-auth0/)
