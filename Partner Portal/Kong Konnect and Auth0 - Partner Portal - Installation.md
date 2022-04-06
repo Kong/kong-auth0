@@ -1,5 +1,5 @@
 ## OpenID Connect
-For Enterprise Class Applicationcs, OpenID Connect (OIDC) is the preferred mechanisms for advanced requirements. In fact, when applying OIDC to secure the APIs, we're delegating the Authentication process to an external entity, called Identity Provider.
+For Enterprise Class Applications, OpenID Connect (OIDC) is the preferred mechanisms for advanced requirements. In fact, when applying OIDC to secure the APIs, we're delegating the Authentication process to an external entity, called Identity Provider.
 
 OIDC is a standard built on top of OAuth and JWT (JSON Web Token). Please, refer to the following link to learn more about [OAuth/OIDC](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol) and its Flows:
 * Authorization Code
@@ -25,48 +25,11 @@ For the Client Credentials Flow, the Kong OpenID Connect plugin forwards the cre
 2. Kong Gateway forwards the credential to Auth0 which returns tokens to the Gateway.
 3. Kong Gateway routes the requests with Access Token injected.
 
-It's important to notice that one of the main benefits provided by an architecture like this is to follow the Separation of Concerns principle:
-* Identity Provider: responsible for User and Application Authentication, Tokenization, MFA, multiples User Databases abstraction, etc.
-* API Gateway: responsible for exposing the Upstream Services and controlling their consumption through an extensive list of policies besides Authentication including Rate Limiting, Caching, Log Processing, etc.
 
 
+## The Data Plane
+The Kong+Auth0 Environment comprehends a Kong Data Plane, responsible for handling the requests coming from the Consumer and protect the Upstream Services and Application sitting behind it. The Data Plane can be deployment in any available platform including Linux-based Operation Systems, Container, Kubernetes, etc. For the purpose of this guide we assume the Kong Data Plane is running in a Kubernetes cluster.
 
-
-## Kubernetes for the Data Plane
-
-### Creating the Data Plane
-The Kong+Auth0 Environment comprehends a Kong Data Plane, responsible for handling the requests coming from the Consumer and protect the Upstream Services and Application sitting behind it. For the purpose of this installation guide we are going to deploy our Kong Data Plane in an AWS EKS (Elastic Kubernetes Service) cluster.
-
-The cluster can be created using:
-<pre>
-$ eksctl create cluster --name kong-auth0 --version 1.21 --region eu-west-3 --nodegroup-name standard-workers --node-type t3.large --nodes 1
-</pre>
-
-In case you want to delete it, run the following command:
-<pre>
-eksctl delete cluster --name kong-auth0
-</pre>
-
-### Checking the EKS Cluster
-<pre>
-$ kubectl get pod --all-namespaces
-NAMESPACE     NAME                      READY   STATUS    RESTARTS   AGE
-kube-system   aws-node-2l6zk            1/1     Running   0          14m
-kube-system   coredns-9b5d74bfb-ds8qn   1/1     Running   0          24m
-kube-system   coredns-9b5d74bfb-kgtkr   1/1     Running   0          24m
-kube-system   kube-proxy-7pfsd          1/1     Running   0          14m
-
-
-$ kubectl get service --all-namespaces
-NAMESPACE     NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)         AGE
-default       kubernetes   ClusterIP   10.100.0.1    <none>        443/TCP         24m
-kube-system   kube-dns     ClusterIP   10.100.0.10   <none>        53/UDP,53/TCP   24m
-</pre>
-
-
-
-## Kong Konnect Control Plane
-Subscribe to [Kong Konnect Plus](https://konnect.konghq.com/register?_ga=2.127542733.1909926982.1645531351-1264875266.1638464050) to get a 30-day trial with all Enterprise capabilities enabled including IdP integrations with OpenID Connect
 
 ### Kong Certificates and Key
 Login to [Kong Konnect](https://konnect.konghq.com) and go to "Runtimes" -> "Configure Runtime" -> "Kubernetes".
@@ -76,8 +39,6 @@ Click on "Generate Certificate" and copy them.
 * Save the "Certificate Key" as tls.key
 * Save the "Root CA Certificate" as ca.crt
 
-
-## Deploying the Kong Data Plane
 
 ### Injecting Key and DCs
 Create a namespace and secrets for the Digital Certificates and Key
@@ -90,13 +51,13 @@ kubectl create secret generic kong-cluster-ca --from-file=ca.crt=./ca.crt -n kon
 </pre>
 
 ### Deploying the Data Plane
-Use the following Helm Chart command to deploy the Data Plane. Replace
+Use the following Helm Chart command to deploy the Data Plane. Replace the Control Plane and Telemetry endpoints with the ones provided by Konnect Control Plane.
 
 <pre>
 helm install kong-dp kong/kong -n kong-dp \
 --set ingressController.enabled=false \
 --set image.repository=kong/kong-gateway \
---set image.tag=2.7.1.1-alpine \
+--set image.tag=2.8.0.0-alpine \
 --set admin.enabled=false \
 --set env.role=data_plane \
 --set env.database=off \
@@ -126,41 +87,9 @@ helm install kong-dp kong/kong -n kong-dp \
 --set env.log_level=debug
 </pre>
 
-### Accessing the Kong Data Plane Cluster
-If you don't have your local kubeconfig set, run:
-<pre>
-$ eksctl utils write-kubeconfig --cluster kong-auth0
-</pre>
-Check the context with:
-<pre>
-$ kubectl config get-contexts
-</pre>
-
-Checking the EKS Cluster
-<pre>
-$ kubectl get deployments --all-namespaces
-NAMESPACE     NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-kong-dp       kong-dp-kong   1/1     1            1           91s
-kube-system   coredns        2/2     2            2           62m
-
-$ kubectl get pod --all-namespaces
-NAMESPACE     NAME                            READY   STATUS    RESTARTS   AGE
-kong-dp       kong-dp-kong-54699d8747-j58kg   1/1     Running   0          100s
-kube-system   aws-node-rhs68                  1/1     Running   0          54m
-kube-system   coredns-9b5d74bfb-xc82l         1/1     Running   0          62m
-kube-system   coredns-9b5d74bfb-zz4fd         1/1     Running   0          62m
-kube-system   kube-proxy-pf8q7                1/1     Running   0          54m
-
-$ kubectl get service --all-namespaces
-NAMESPACE     NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)                      AGE
-default       kubernetes           ClusterIP      10.100.0.1       <none>                                                                   443/TCP                      63m
-kong-dp       kong-dp-kong-proxy   LoadBalancer   10.100.201.216   a3337b1604fb9419190b54634515fcb3-183430464.eu-west-3.elb.amazonaws.com   80:32015/TCP,443:32038/TCP   108s
-kube-system   kube-dns             ClusterIP      10.100.0.10      <none>                                                                   53/UDP,53/TCP                63m
-</pre>
 
 
-
-## Kong Gateway Service and Route Creation and Policies
+### Kong Gateway Service and Route Creation and Policies
 ### Create the Service Package
 * Login to Konnect and click on <b>Add New Service</b>
 
@@ -178,6 +107,17 @@ kube-system   kube-dns             ClusterIP      10.100.0.10      <none>       
 * Type <b>http://httpbin.org</b> for URL and click on <b>Next</b>
 
 * Type <b>httpbinroute</b> for <b>Name</b>. Click on <b>+ Add Path</b> and type <b>/httpbin</b>. Click on <b>Create</b>.
+
+### Accessing the Kong Data Plane Cluster
+<pre>
+$ kubectl get service --all-namespaces
+NAMESPACE     NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)                      AGE
+default       kubernetes           ClusterIP      10.100.0.1       <none>                                                                   443/TCP                      63m
+kong-dp       kong-dp-kong-proxy   LoadBalancer   10.100.201.216   a3337b1604fb9419190b54634515fcb3-183430464.eu-west-3.elb.amazonaws.com   80:32015/TCP,443:32038/TCP   108s
+kube-system   kube-dns             ClusterIP      10.100.0.10      <none>                                                                   53/UDP,53/TCP                63m
+</pre>
+
+Use the External IP Address provided by your Kubernetes cluster.
 
 
 
