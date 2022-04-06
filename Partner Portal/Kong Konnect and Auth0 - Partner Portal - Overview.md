@@ -8,11 +8,11 @@ API gateway authentication is an important way to control the data that is allow
 
 Kong Gateway has a library of plugins that provide simple ways to implement the best known and most widely used methods of API gateway authentication. Here are some of the commonly used ones:
 
-Basic Authentication
-Key Authentication
-OAuth 2.0 Authentication
-LDAP Authentication Advanced
-OpenID Connect
+* Basic Authentication
+* Key Authentication
+* OAuth 2.0 Authentication
+* LDAP Authentication Advanced
+* OpenID Connect
 
 Please, refer to the following link to read more about [API Gateway authentication](https://konghq.com/learning-center/api-gateway/api-gateway-authentication)
 
