@@ -76,7 +76,7 @@ kube-system   kube-dns     ClusterIP   10.100.0.10   <none>        53/UDP,53/TCP
 
 
 ## Kong Konnect Control Plane
-Subscribe to [Kong Konnect Plus](https://konnect.konghq.com/register?_ga=2.127542733.1909926982.1645531351-1264875266.1638464050) to get a 30-day rial with all Enterprise capabilities enabled including IdP integrations with OpenID Connect
+Subscribe to [Kong Konnect Plus](https://konnect.konghq.com/register?_ga=2.127542733.1909926982.1645531351-1264875266.1638464050) to get a 30-day trial with all Enterprise capabilities enabled including IdP integrations with OpenID Connect
 
 ### Kong Certificates and Key
 Login to [Kong Konnect](https://konnect.konghq.com) and go to "Runtimes" -> "Configure Runtime" -> "Kubernetes".
