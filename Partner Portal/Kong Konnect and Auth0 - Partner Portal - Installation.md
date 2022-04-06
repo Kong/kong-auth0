@@ -1,11 +1,11 @@
 ## OpenID Connect
-Of all authentication mechanisms listed before, OpenID Connect (OIDC) is the preferred one for advanced requirements. In fact, when applying OIDC to secure the APIs, we're delegating the Authentication process to an external entity, called Identity Provider.
+For Enterprise Class Applicationcs, OpenID Connect (OIDC) is the preferred mechanisms for advanced requirements. In fact, when applying OIDC to secure the APIs, we're delegating the Authentication process to an external entity, called Identity Provider.
 
 OIDC is a standard built on top of OAuth and JWT (JSON Web Token). Please, refer to the following link to learn more about [OAuth/OIDC](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol) and its Flows:
-Authorization Code
-Implicit
-Resource Owner Password
-Client Credentials
+* Authorization Code
+* Implicit
+* Resource Owner Password
+* Client Credentials
 
 ### Kong Konnect and Auth0 Reference Architecture
 The following diagram shows a Reference Architecture including Kong Konnect and Auth0
