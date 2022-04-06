@@ -89,8 +89,7 @@ helm install kong-dp kong/kong -n kong-dp \
 
 
 
-### Kong Gateway Service and Route Creation and Policies
-### Create the Service Package
+### Create the Kong Service Package
 * Login to Konnect and click on <b>Add New Service</b>
 
 * Create a new <b>httpbinservice</b> Service with <b>v1</b> version
@@ -108,25 +107,16 @@ helm install kong-dp kong/kong -n kong-dp \
 
 * Type <b>httpbinroute</b> for <b>Name</b>. Click on <b>+ Add Path</b> and type <b>/httpbin</b>. Click on <b>Create</b>.
 
-### Accessing the Kong Data Plane Cluster
+
+### Consume the Kong Route
+Use the External IP Address provided by your Kubernetes cluster. For example, the following command shows the AWS EKS services:
 <pre>
 $ kubectl get service --all-namespaces
 NAMESPACE     NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)                      AGE
 default       kubernetes           ClusterIP      10.100.0.1       <none>                                                                   443/TCP                      63m
 kong-dp       kong-dp-kong-proxy   LoadBalancer   10.100.201.216   a3337b1604fb9419190b54634515fcb3-183430464.eu-west-3.elb.amazonaws.com   80:32015/TCP,443:32038/TCP   108s
 kube-system   kube-dns             ClusterIP      10.100.0.10      <none>                                                                   53/UDP,53/TCP                63m
-</pre>
 
-Use the External IP Address provided by your Kubernetes cluster.
-
-
-
-### Consume the Kong Route
-Open a local terminal and send a request to the Data Plane using the AWS ELB already provisioned:
-
-<pre>
-$ kubectl get service kong-dp-kong-proxy -n kong-dp -o json | jq -r .status.loadBalancer.ingress[].hostname
-a3337b1604fb9419190b54634515fcb3-183430464.eu-west-3.elb.amazonaws.com
 
 $ http a3337b1604fb9419190b54634515fcb3-183430464.eu-west-3.elb.amazonaws.com/httpbin/get
 HTTP/1.1 200 OK
