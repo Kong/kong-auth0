@@ -25,6 +25,8 @@ Implicit
 Resource Owner Password
 Client Credentials
 
+Auth0 is one of the main IdPs in the marketplace today. Kong, on the other hand, is the world’s most popular API gateway, built for hybrid and multi-cloud and optimized for microservices and distributed architectures. The Auth0 and Kong integration provides a powerful and flexible solution for secure API Management infrastructures.
+
 ### Kong Konnect and Auth0 Reference Architecture
 The following diagram shows a Reference Architecture including Kong Konnect and Auth0
 ![Reference Architecture](images/Reference_Architecture.png)
